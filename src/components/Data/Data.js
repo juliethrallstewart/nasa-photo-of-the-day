@@ -68,14 +68,14 @@ export default function Data ({ limit }) {
 					Nasa
 					{
 						content.media_type === 'video' ? <span>Video </span> :
-						<span>Image</span>}
+						<span> Image </span>}
 					of the Day
 				</h1>
 				{
 					content !== '' ? <Post promise={content} /> :
 					<div>Loading...</div>}
 			</header>
-			<Media imgUrl={content.url} />
+			<Media imgUrl={content.url} mediaType={content.media_type} />
 			<h2 className="title">{content.title}</h2>
 			<p className="date">{content.date}</p>
 			<p className="explanation">{content.explanation}</p>
