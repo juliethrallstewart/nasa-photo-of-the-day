@@ -16,26 +16,26 @@ export default function Data ({ limit }) {
 		setContent
 	] = useState('');
 
-	const [
-		date,
-		setDate
-	] = useState();
-	const [
-		explanation,
-		setExplanation
-	] = useState();
-	const [
-		mediaType,
-		setMediaType
-	] = useState();
-	const [
-		title,
-		setTitle
-	] = useState();
-	const [
-		url,
-		setUrl
-	] = useState();
+	// const [
+	// 	date,
+	// 	setDate
+	// ] = useState();
+	// const [
+	// 	explanation,
+	// 	setExplanation
+	// ] = useState();
+	// const [
+	// 	mediaType,
+	// 	setMediaType
+	// ] = useState();
+	// const [
+	// 	title,
+	// 	setTitle
+	// ] = useState();
+	// const =
+	// 	url,
+	// 	setUrl
+	// ] = useState();
 
 	useEffect(
 		() => {
@@ -44,11 +44,11 @@ export default function Data ({ limit }) {
 				.then((res) => {
 					const result = res.data;
 					setContent(result);
-					setDate(result.date);
-					setExplanation(result.explanation);
-					setMediaType(result.media_type);
-					setTitle(result.title);
-					setUrl(result.url);
+					// setDate(result.date);
+					// setExplanation(result.explanation);
+					// setMediaType(result.media_type);
+					// setTitle(result.title);
+					// setUrl(result.url);
 				})
 				.catch((e) => {
 					console.log(e);
@@ -59,7 +59,7 @@ export default function Data ({ limit }) {
 		]
 	);
 
-	console.log(url);
+	console.log(content.url);
 
 	return (
 		<div className="container">
@@ -67,10 +67,10 @@ export default function Data ({ limit }) {
 			{
 				content !== '' ? <Post promise={content} /> :
 				<div>Loading...</div>}
-			<Media imgUrl={url} />
-			<h2>{title}</h2>
-			<p>{date}</p>
-			<p>{explanation}</p>
+			<Media imgUrl={content.url} />
+			<h2 className="title">{content.title}</h2>
+			<p className="date">{content.date}</p>
+			<p className="explanation">{content.explanation}</p>
 		</div>
 	);
 }
