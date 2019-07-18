@@ -21,7 +21,7 @@ In this project you will build out a application to show the nasa photo of the d
 ---
 
 This project was put together using create-react-app (CRA). You will not need to install CRA in order to make this project work. Follow the steps below to setup the project with the proper dependencies.
-
+npm install
 - [ ] Create a forked copy of this project.
 - [ ] Add your team lead as collaborator on Github.
 - [ ] Clone your OWN version of the repository in your terminal
@@ -68,6 +68,8 @@ Follow these steps for completing your project.
 - Using the endpoint given, fetch the data using `axios`.
 - In your `.then()` make sure to `console.log` the response so you can look at the shape of the data. 😃
 - Before you add your data to state, make sure your effect hook has a dependency array (probably empty, since we don't want this effect synced up to any state/props), otherwise you will start an **infinite loop, and you will exceed the API rate limits of the DEMO_KEY and need to use a real API_KEY.**
+
+- API KEY https://api.nasa.gov/index.html#apply-for-an-api-key
 
 DEMO KEY rate limits:
 
