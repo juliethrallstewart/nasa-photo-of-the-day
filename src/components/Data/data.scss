@@ -1,4 +1,8 @@
 body {
 	margin: 0 auto;
-	//background-color: #efefef;
+	background-color: $backgroundColor;
+
+	h1 {
+		font-size: 2em;
+	}
 }

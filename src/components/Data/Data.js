@@ -59,14 +59,22 @@ export default function Data ({ limit }) {
 		]
 	);
 
-	console.log(content.url);
+	console.log(content);
 
 	return (
 		<div className="container">
-			<h1>Nasa Photo of the Day</h1>
-			{
-				content !== '' ? <Post promise={content} /> :
-				<div>Loading...</div>}
+			<header>
+				<h1>
+					Nasa
+					{
+						content.media_type === 'video' ? <span>Video </span> :
+						<span>Image</span>}
+					of the Day
+				</h1>
+				{
+					content !== '' ? <Post promise={content} /> :
+					<div>Loading...</div>}
+			</header>
 			<Media imgUrl={content.url} />
 			<h2 className="title">{content.title}</h2>
 			<p className="date">{content.date}</p>
