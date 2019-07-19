@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Media from '../Media/Media.js';
 import Post from '../Post/Post.js';
+import 'semantic-ui-css/semantic.min.css';
+import CreateHeader from '../Header/Header.js';
+import Explanation from '../Explanation/Explanation.js';
+import './data.scss';
+import { StyledH2 } from '../../Styles.js';
+import PhotoCard from '../PhotoCard/PhotoCard.js';
 
 const nasaAPI = 'https://api.nasa.gov/planetary/apod?api_key=nfIXoKXfXb5pGxmbanV70k4dOopcTy9kW8U05nH8';
 
@@ -16,27 +22,6 @@ export default function Data ({ limit }) {
 		setContent
 	] = useState('');
 
-	// const [
-	// 	date,
-	// 	setDate
-	// ] = useState();
-	// const [
-	// 	explanation,
-	// 	setExplanation
-	// ] = useState();
-	// const [
-	// 	mediaType,
-	// 	setMediaType
-	// ] = useState();
-	// const [
-	// 	title,
-	// 	setTitle
-	// ] = useState();
-	// const =
-	// 	url,
-	// 	setUrl
-	// ] = useState();
-
 	useEffect(
 		() => {
 			axios
@@ -44,11 +29,6 @@ export default function Data ({ limit }) {
 				.then((res) => {
 					const result = res.data;
 					setContent(result);
-					// setDate(result.date);
-					// setExplanation(result.explanation);
-					// setMediaType(result.media_type);
-					// setTitle(result.title);
-					// setUrl(result.url);
 				})
 				.catch((e) => {
 					console.log(e);
@@ -63,22 +43,74 @@ export default function Data ({ limit }) {
 
 	return (
 		<div className="container">
-			<header>
-				<h1>
-					Nasa
-					{
-						content.media_type === 'video' ? <span>Video </span> :
-						<span> Image </span>}
-					of the Day
-				</h1>
-				{
-					content !== '' ? <Post promise={content} /> :
-					<div>Loading...</div>}
-			</header>
+			{/* <CreateHeader content={content} mediaType={content.media_type} />
 			<Media imgUrl={content.url} mediaType={content.media_type} />
-			<h2 className="title">{content.title}</h2>
+			<StyledH2 className="title" color="blue">
+				{content.title}
+			</StyledH2>
 			<p className="date">{content.date}</p>
-			<p className="explanation">{content.explanation}</p>
+            <Explanation explanation={content.explanation} /> */}
+			<PhotoCard
+				imgUrl={content.url}
+				mediaType={content.media_type}
+				explanation={content.explanation}
+				content={content}
+				title={content.title}
+				date={content.date}
+			/>
 		</div>
 	);
+}
+
+// old styling for reference
+
+// setDate(result.date);
+// setExplanation(result.explanation);
+// setMediaType(result.media_type);
+// setTitle(result.title);
+// setUrl(result.url);
+
+// const [
+// 	date,
+// 	setDate
+// ] = useState();
+// const [
+// 	explanation,
+// 	setExplanation
+// ] = use
+// const [
+// 	mediaType,
+// 	setMediaType
+// ] = useState();
+// const [
+// 	title,
+// 	setTitle
+// ] = useState();
+// const =
+// 	url,
+// 	setUrl
+// ] = useState();
+
+{
+	/* <ContainerBox
+imgUrl={content.url}
+mediaType={content.media_type}
+explanation={content.explanation}
+content={content}
+title={content.title}
+date={content.date}
+/> */
+}
+
+{
+	/* {content.map((data) => (
+				<ContainerBox
+					imgUrl={data.url}
+					mediaType={data.media_type}
+					explanation={data.explanation}
+					content={data.content}
+					title={data.title}
+					date={data.date}
+				/>
+			))} */
 }

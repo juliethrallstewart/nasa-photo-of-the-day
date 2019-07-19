@@ -1,8 +1,16 @@
+$backgroundColor: #1730bf;
+
 body {
 	margin: 0 auto;
 	background-color: $backgroundColor;
 
 	h1 {
 		font-size: 2em;
+	}
+
+	.container {
+		margin: 50px auto;
+		display: flex;
+		justify-content: center;
 	}
 }
